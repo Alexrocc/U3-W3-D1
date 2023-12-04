@@ -11,7 +11,7 @@ import { map } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   sub!: Subscription;
-  productList: any;
+  productList: ProductRes | undefined;
   productArr: Product[] | undefined;
 
   constructor(private productSrv: ProductsService) {}
@@ -24,10 +24,8 @@ export class HomeComponent implements OnInit {
     this.sub = this.productSrv.getProducts().subscribe((risultato) => {
       this.productList = risultato;
       console.log(this.productList);
-      // this.productArr = risultato.data;
+      this.productArr = risultato.products;
       console.log(this.productArr);
-
-      // this.productSrv.products = this.products;
     });
   }
 }

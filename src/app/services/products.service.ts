@@ -12,6 +12,6 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    return this.http.get<{ data: ProductRes }>(this.url);
+    return this.http.get<ProductRes>(this.url);
   }
 }
